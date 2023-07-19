@@ -1,5 +1,11 @@
-#include<stdio.h>
-#include<stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
+
+void swap(int *a, int *b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
 
 int main() {
     int p[30], bt[30], su[30], wt[30], tat[30], at[30], i, k, n, temp;
@@ -49,21 +55,10 @@ int main() {
     for (i = 0; i < n - 1; i++) {
         for (k = 0; k < n - i - 1; k++) {
             if (at[k] > at[k + 1]) {
-                temp = at[k];
-                at[k] = at[k + 1];
-                at[k + 1] = temp;
-
-                temp = p[k];
-                p[k] = p[k + 1];
-                p[k + 1] = temp;
-
-                temp = bt[k];
-                bt[k] = bt[k + 1];
-                bt[k + 1] = temp;
-
-                temp = su[k];
-                su[k] = su[k + 1];
-                su[k + 1] = temp;
+                swap(&at[k], &at[k + 1]);
+                swap(&p[k], &p[k + 1]);
+                swap(&bt[k], &bt[k + 1]);
+                swap(&su[k], &su[k + 1]);
             }
         }
     }
